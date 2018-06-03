@@ -11,12 +11,13 @@ package com.example.strahinja.contacts;
 
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Contacts.db";
+    public static final String DATABASE_NAME = "Contacts1.db";
     public static final String TABLE_NAME = "contacts";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "FIRSTNAME";
     public static final String COL_3 = "LASTNAME";
     public static final String COL_4 = "PHONE";
+    public static final String COL_5 = "FAVORITE";
 
     public DBHelper(Context context)
     {
@@ -26,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("create table IF NOT EXISTS " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRSTNAME TEXT, LASTNAME TEXT, PHONE INTEGER)");
+        db.execSQL("create table IF NOT EXISTS " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRSTNAME TEXT, LASTNAME TEXT, PHONE INTEGER, FAVORITE INTEGER)");
     }
 
     @Override
@@ -36,13 +37,15 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String fname,String lname,String phone)
+    public boolean insertData(String fname, String lname, String phone, int favorite)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, fname);
         contentValues.put(COL_3, lname);
         contentValues.put(COL_4, phone);
+        contentValues.put(COL_5, favorite);
+
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
             return false;
@@ -64,7 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(String id,String fname,String lname,String phone)
+    public boolean updateData(String id, String fname, String lname, String phone, int favorite)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -72,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_2, fname);
         contentValues.put(COL_3, lname);
         contentValues.put(COL_4, phone);
+        contentValues.put(COL_5, favorite);
         db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
         return true;
     }

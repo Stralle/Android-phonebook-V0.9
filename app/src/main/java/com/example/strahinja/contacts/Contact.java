@@ -10,12 +10,15 @@ public class Contact {
     private String firstName;
     private String lastName;
     private String phone;
+    private int image;
+    private int favorite;
 
-    public Contact(String id, String firstName, String lastName, String phone) {
+    public Contact(String id, String firstName, String lastName, String phone, int favorite) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
+        this.favorite = favorite;
     }
 
     public String getFirstName() {
@@ -28,6 +31,22 @@ public class Contact {
 
     public String getPhone() {
         return phone;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public int getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(int favorite) {
+        this.favorite = favorite;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public void setFirstName(String firstName) {

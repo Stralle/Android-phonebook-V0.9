@@ -9,5 +9,7 @@
     <string name="add_contact">Create new contact</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="edit">edit</string>
+    <string name="favorite">Favorite</string>
 
 </resources>

@@ -14,6 +14,20 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
 
+        <ImageView
+            android:id="@+id/edit_image"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:tooltipText="@string/choose_image"
+            android:src="@drawable/ic_person"
+            android:layout_weight="1"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,6 +79,11 @@
             android:layout_marginRight="10dp"
             android:height="50dp"
             />
+        <CheckBox
+            android:id="@+id/edit_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite" />
 
         <!--<Button
             android:layout_width="match_parent"
